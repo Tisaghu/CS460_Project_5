@@ -1,8 +1,15 @@
 #include "message.h"
 
-bool sendMessage( int socket_var, const char message[ MAX_STD_LEN ] )
+bool sendMessage( int socket_var, COMMAND_TYPE MessageType, char IPAddress[15], int portNumber, const char message[ MAX_STD_LEN ] )
 {
     //Initialize variables
+
+    //put all information into new message
+    newMessage = malloc(sizeof(Message));
+    newMessage.MessageType = MessageType;
+    newMessage.IPAddress = IPAddress;
+    newMessage.portNumber = portNumber;
+    newMessage.content = message;
 
     //connects to server using property file info
     send( socket_var, message, sizeof(message) );

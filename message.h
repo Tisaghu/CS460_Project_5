@@ -8,8 +8,11 @@
 #include <stdio.h>
 #include <string.h>
 
+//standard length for messages
+#define MAX_STD_LEN = 80;
+
 //COMMAND_TYPE
-typedef enum COMMAND_TYPE {JOIN, LEAVE, NOTE, SHUTDOWN, SHUTDOWN_ALL};
+typedef enum COMMAND_TYPE {JOIN, LEAVE, NOTE, SHUTDOWN, SHUTDOWN_ALL}COMMAND_TYPE;
 
 //message struct
 typedef struct Message {
@@ -20,8 +23,8 @@ typedef struct Message {
 }Message;
 
 //function prototypes
-bool sendMessage( int socket_var, const char message[MAX_STD_LEN] )
-bool receiveMessage( Message* receive, int socket_var )
+bool sendMessage( int socket_var, const char message[MAX_STD_LEN]);
+bool receiveMessage( Message* receive, int socket_var );
 
 
 #endif // message_h
